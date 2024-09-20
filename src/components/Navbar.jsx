@@ -1,7 +1,20 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
+
+  const {user, logOut} = useContext(AuthContext);
+
+  const handleLogOut =()=>{
+    logOut()
+    .then()
+    .catch(error =>{
+      console.log(error.message)
+    })
+  }
+
+
   const menus = (
     <>
       <li>
@@ -15,11 +28,11 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/login"
+          to="/order"
           className={({ isActive}) => isActive ? "active" : ""
           }
         >
-        Login
+       Orders
         </NavLink>
       </li>
       <li>
@@ -66,7 +79,13 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{menus}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+       {
+       user ? <>  <span>{user?.email}</span>
+        <a onClick={handleLogOut} className="btn btn-secondary">Sign Out</a> </> 
+        :
+        <Link to='/login'><button className="btn btn-primary">Login</button></Link>
+       }
+       
       </div>
     </div>
   );
