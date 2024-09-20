@@ -8,8 +8,10 @@ const Home = () => {
       // console.log(user)
 
       return (
-            <div>
-                 <h2>{user?.email}</h2>
+            <div className='bg-slate-400'>
+                 <div className='min-h-[900px] flex justify-center items-center'>
+                  <h2 className='text-6xl font-bold text-purple-700'>Home Page</h2>
+                 </div>
             </div>
       );
 };

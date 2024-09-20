@@ -16,7 +16,8 @@ const Register = () => {
           createUser(email, password)
           .then(result =>{
             const user = result.user;
-            console.log('CreateUser', user)
+            console.log('CreateUser', user);
+            form.reset();
           })
           .catch(error =>{
             console.log(error.message)
@@ -25,7 +26,7 @@ const Register = () => {
 
       return (
             <div>
-      <div className="hero bg-gradient-to-r from-cyan-500 to-blue-500 min-h-screen">
+      <div className="hero bg-gradient-to-r from-cyan-500 to-blue-500 lg:h-[800px]">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left text-white">
             <h1 className="text-5xl font-bold">Register now!</h1>

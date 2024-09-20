@@ -26,7 +26,7 @@ const Navbar = () => {
          Home
         </NavLink>
       </li>
-      <li>
+     {user && <li>
         <NavLink
           to="/order"
           className={({ isActive}) => isActive ? "active" : ""
@@ -34,7 +34,7 @@ const Navbar = () => {
         >
        Orders
         </NavLink>
-      </li>
+      </li>}
       <li>
         <NavLink
           to="/register"
